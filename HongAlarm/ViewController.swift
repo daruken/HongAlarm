@@ -11,7 +11,6 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var myLabel: UILabel!
-    @IBOutlet weak var mySwitch: UISwitch!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,13 +24,12 @@ class ViewController: UIViewController {
         
         myLabel.text = "알람"
     }
-
-    @IBAction func mySwitchTapped(sender: AnyObject) {
-        
+    
+    
+    @IBAction func myEditButtonTouched(sender: AnyObject) {
     }
     
-    
-    @IBAction func myButtonTouched(sender: AnyObject) {
+    @IBAction func myAddButtonTouched(sender: AnyObject) {
     }
     
     override func didReceiveMemoryWarning() {
