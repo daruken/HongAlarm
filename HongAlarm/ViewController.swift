@@ -12,7 +12,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var myLabel: UILabel!
     @IBOutlet weak var mySwitch: UISwitch!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -23,12 +23,15 @@ class ViewController: UIViewController {
         let hour = components.hour
         let minutes = components.minute
         
-        
         myLabel.text = "알람"
     }
 
     @IBAction func mySwitchTapped(sender: AnyObject) {
         
+    }
+    
+    
+    @IBAction func myButtonTouched(sender: AnyObject) {
     }
     
     override func didReceiveMemoryWarning() {
