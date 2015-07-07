@@ -46,10 +46,10 @@
             </objects>
             <point key="canvasLocation" x="186" y="-67"/>
         </scene>
-        <!--View Controller-->
+        <!--View Edit Controller-->
         <scene sceneID="DlO-It-0Wq">
             <objects>
-                <viewController id="pTj-hd-8RD" sceneMemberID="viewController">
+                <viewController id="pTj-hd-8RD" customClass="ViewEditController" customModule="HongAlarm" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DdD-6F-hM5"/>
                         <viewControllerLayoutGuide type="bottom" id="ugV-cu-IRK"/>
@@ -58,25 +58,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="알람 추가" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a0W-SC-4Vv">
+                                <rect key="frame" x="158" y="32" width="70" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J3Y-Sc-cF6">
                                 <rect key="frame" x="0.0" y="28" width="46" height="30"/>
-                                <state key="normal" title="Done">
+                                <state key="normal" title="취소">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="vXZ-lx-hvc" kind="modal" id="ZCf-o2-d81"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="알람 추가" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a0W-SC-4Vv">
-                                <rect key="frame" x="175" y="32" width="70" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JMJ-16-69B">
+                                <rect key="frame" x="336" y="28" width="46" height="30"/>
+                                <state key="normal" title="저장">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qsh-Uq-Vku">
+                                <rect key="frame" x="120" y="60" width="50" height="200"/>
+                            </pickerView>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oiy-fD-xZb">
+                                <rect key="frame" x="220" y="60" width="50" height="200"/>
+                            </pickerView>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nZ7-li-3ZW">
+                                <rect key="frame" x="170" y="60" width="50" height="200"/>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Wzi-NV-Hb9"/>
+                    <connections>
+                        <outlet property="PickerAmPm" destination="qsh-Uq-Vku" id="78B-5x-uaF"/>
+                        <outlet property="PickerHour" destination="nZ7-li-3ZW" id="C3G-0l-zyq"/>
+                        <outlet property="PickerMinute" destination="oiy-fD-xZb" id="7jL-PS-knD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vsI-WV-dxo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
