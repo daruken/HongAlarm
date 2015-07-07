@@ -409,6 +409,7 @@
 				A6C3BB991B4569CE003374A0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A6C3BB9A1B4569CE003374A0 /* Build configuration list for PBXNativeTarget "HongAlarmTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +418,7 @@
 				A6C3BB9C1B4569CE003374A0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

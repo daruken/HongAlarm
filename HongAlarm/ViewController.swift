@@ -10,8 +10,6 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var myLabel: UILabel!
-
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -22,14 +20,7 @@ class ViewController: UIViewController {
         let hour = components.hour
         let minutes = components.minute
         
-        myLabel.text = "알람"
-    }
-    
-    
-    @IBAction func myEditButtonTouched(sender: AnyObject) {
-    }
-    
-    @IBAction func myAddButtonTouched(sender: AnyObject) {
+
     }
     
     override func didReceiveMemoryWarning() {
