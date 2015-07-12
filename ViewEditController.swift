@@ -24,8 +24,11 @@ class ViewEditController : UIViewController, UIPickerViewDelegate, UIPickerViewD
     , "40", "41", "42", "43", "44", "45", "46", "47", "48", "49"
     , "50", "51", "52", "53", "54", "55", "56", "57", "58", "59" ]
     
-    var ampm = 0
- 
+    var didSelectedAmPm = 0
+    var didSelectedHour = 0
+    var didSelectedMinute = 0
+    var alarmList = [Int]()
+
     override func viewDidLoad() {
         
         PickerAmPm.delegate = self
@@ -53,19 +56,21 @@ class ViewEditController : UIViewController, UIPickerViewDelegate, UIPickerViewD
         PickerAmPm.selectRow(ampm, inComponent: 0, animated: false)
         PickerHour.selectRow(hour, inComponent: 0, animated: true)
         PickerMinute.selectRow(minute, inComponent: 0, animated: true)
+
     }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
         switch pickerView {
         case PickerAmPm :
-            return ArrayAmPm[row % ArrayAmPm.count]
+            return ArrayAmPm[row]
         case PickerHour :
-            return ArrayHour[row % ArrayHour.count]
+            return ArrayHour[row]
         case PickerMinute :
             return ArrayMinute[row]
         default :
             break
         }
+
         return ""
     }
     
@@ -83,7 +88,35 @@ class ViewEditController : UIViewController, UIPickerViewDelegate, UIPickerViewD
         return 0
     }
     
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component:Int ){
+
+        if pickerView == PickerAmPm
+        {
+            didSelectedAmPm = (row+1) * 10000
+        }
+        else if pickerView == PickerHour
+        {
+            didSelectedHour = (row+1) * 100
+        }
+        else if pickerView == PickerMinute
+        {
+            didSelectedMinute = row
+        }
+        else
+        {
+            
+        }
+        
+        let sum = didSelectedAmPm + didSelectedHour + didSelectedMinute
+        testLabel.text = String(sum)
+    }
+    
+    @IBOutlet weak var testLabel: UILabel!
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
+    }
+    
+    @IBAction func addAlarmList(sender: AnyObject) {
+    
     }
 }

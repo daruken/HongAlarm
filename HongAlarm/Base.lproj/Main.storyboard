@@ -78,6 +78,9 @@
                                 <state key="normal" title="저장">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="addAlarmList:" destination="pTj-hd-8RD" eventType="touchUpInside" id="yIO-So-ipF"/>
+                                </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qsh-Uq-Vku">
                                 <rect key="frame" x="120" y="60" width="50" height="200"/>
@@ -85,8 +88,14 @@
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oiy-fD-xZb">
                                 <rect key="frame" x="220" y="60" width="50" height="200"/>
                             </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i5f-rG-EZ1">
+                                <rect key="frame" x="224" y="367" width="109" height="45"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nZ7-li-3ZW">
-                                <rect key="frame" x="170" y="60" width="50" height="200"/>
+                                <rect key="frame" x="168" y="60" width="50" height="200"/>
                             </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -96,6 +105,7 @@
                         <outlet property="PickerAmPm" destination="qsh-Uq-Vku" id="78B-5x-uaF"/>
                         <outlet property="PickerHour" destination="nZ7-li-3ZW" id="C3G-0l-zyq"/>
                         <outlet property="PickerMinute" destination="oiy-fD-xZb" id="7jL-PS-knD"/>
+                        <outlet property="testLabel" destination="i5f-rG-EZ1" id="mhI-wX-xkS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vsI-WV-dxo" userLabel="First Responder" sceneMemberID="firstResponder"/>
