@@ -24,6 +24,8 @@ class ViewEditController : UIViewController, UIPickerViewDelegate, UIPickerViewD
     , "40", "41", "42", "43", "44", "45", "46", "47", "48", "49"
     , "50", "51", "52", "53", "54", "55", "56", "57", "58", "59" ]
     
+    var ampm = 0
+ 
     override func viewDidLoad() {
         
         PickerAmPm.delegate = self
@@ -34,15 +36,31 @@ class ViewEditController : UIViewController, UIPickerViewDelegate, UIPickerViewD
         
         PickerMinute.delegate = self
         PickerMinute.dataSource = self
-
+        
+        let date = NSDate()
+        let calendar = NSCalendar.currentCalendar()
+        let components = calendar.components(.CalendarUnitHour | .CalendarUnitMinute, fromDate: date)
+        
+        var ampm = 0
+        var hour = components.hour
+        let minute = components.minute
+        
+        if ( hour > 12 ){
+            hour = hour - 13
+            ampm = 1
+        }
+        
+        PickerAmPm.selectRow(ampm, inComponent: 0, animated: false)
+        PickerHour.selectRow(hour, inComponent: 0, animated: true)
+        PickerMinute.selectRow(minute, inComponent: 0, animated: true)
     }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
         switch pickerView {
         case PickerAmPm :
-            return ArrayAmPm[row]
+            return ArrayAmPm[row % ArrayAmPm.count]
         case PickerHour :
-            return ArrayHour[row]
+            return ArrayHour[row % ArrayHour.count]
         case PickerMinute :
             return ArrayMinute[row]
         default :
