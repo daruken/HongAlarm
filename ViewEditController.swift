@@ -27,7 +27,7 @@ class ViewEditController : UIViewController, UIPickerViewDelegate, UIPickerViewD
     var didSelectedAmPm = 0
     var didSelectedHour = 0
     var didSelectedMinute = 0
-    var alarmList = [Int]()
+    var alarmList = Dictionary<Int, Int>()
     
     override func viewDidLoad() {
         
@@ -137,18 +137,10 @@ class ViewEditController : UIViewController, UIPickerViewDelegate, UIPickerViewD
         {
             didSelectedHour = (newHourRow%12+1) * 100
         }
-        else if pickerView == PickerMinute
+        else
         {
             didSelectedMinute = newMinuteRow%60
         }
-        else
-        {
-            
-        }
-        
-        //let sum = didSelectedAmPm + didSelectedHour + didSelectedMinute
-        //testLabel.text = String(sum)
-        
     }
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
@@ -172,6 +164,30 @@ class ViewEditController : UIViewController, UIPickerViewDelegate, UIPickerViewD
     }
 
     @IBAction func addAlarmList(sender: AnyObject) {
+        let sum = didSelectedAmPm + didSelectedHour + didSelectedMinute
+        testLabel.text = String(sum) + " : " + "Hello"
+    }
     
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+        return 2;
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    {
+        var cell = tableView.dequeueReusableCellWithIdentifier("MyCell") as? UITableViewCell
+        var subMenu = [
+            "요일",
+            "사운드"
+        ]
+        
+        if cell == nil {
+            cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: "MyCell")
+        }
+        
+        cell?.textLabel?.text = subMenu[indexPath.row]
+        cell?.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+
+        return cell!
     }
 }
