@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+
 class ViewEditController : UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
     
     @IBOutlet weak var PickerAmPm: UIPickerView!
@@ -28,7 +29,7 @@ class ViewEditController : UIViewController, UIPickerViewDelegate, UIPickerViewD
     var didSelectedHour = 0
     var didSelectedMinute = 0
     var alarmList = [Int]()
-
+    
     override func viewDidLoad() {
         
         PickerAmPm.delegate = self
@@ -48,19 +49,26 @@ class ViewEditController : UIViewController, UIPickerViewDelegate, UIPickerViewD
         var hour = components.hour
         let minute = components.minute
         
-        if ( hour > 12 ){
-            hour = hour - 13
+        if ( hour == 12 )
+        {
             ampm = 1
+            hour = 11
         }
-        
+        else if ( 12 < hour && hour < 24  ){
+            ampm = 1
+            hour = hour - 13
+        }
+        else{
+            ampm = 0
+        }
+
         PickerAmPm.selectRow(ampm, inComponent: 0, animated: false)
         PickerHour.selectRow(hour, inComponent: 0, animated: true)
         PickerMinute.selectRow(minute, inComponent: 0, animated: true)
-
     }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
-        switch pickerView {
+       switch pickerView {
         case PickerAmPm :
             return ArrayAmPm[row]
         case PickerHour :
@@ -108,14 +116,14 @@ class ViewEditController : UIViewController, UIPickerViewDelegate, UIPickerViewD
         }
         
         let sum = didSelectedAmPm + didSelectedHour + didSelectedMinute
-        testLabel.text = String(sum)
+        //testLabel.text = String(sum)
     }
     
     @IBOutlet weak var testLabel: UILabel!
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
     }
-    
+
     @IBAction func addAlarmList(sender: AnyObject) {
     
     }
