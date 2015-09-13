@@ -129,16 +129,13 @@ class ViewEditController : UIViewController, UIPickerViewDelegate, UIPickerViewD
             break
         }
         
-        if pickerView == PickerAmPm
-        {
+        if pickerView == PickerAmPm{
             didSelectedAmPm = (row+1) * 10000
         }
-        else if pickerView == PickerHour
-        {
+        else if pickerView == PickerHour{
             didSelectedHour = (newHourRow%12+1) * 100
         }
-        else
-        {
+        else{
             didSelectedMinute = newMinuteRow%60
         }
     }
@@ -175,19 +172,24 @@ class ViewEditController : UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        var cell = tableView.dequeueReusableCellWithIdentifier("MyCell") as? UITableViewCell
+        var cell = tableView.dequeueReusableCellWithIdentifier("Week") as? UITableViewCell
         var subMenu = [
             "요일",
             "사운드"
         ]
         
-        if cell == nil {
-            cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: "MyCell")
+        if( indexPath.row == 0 ){
+            cell = tableView.dequeueReusableCellWithIdentifier("Week") as? UITableViewCell
+        }
+        else{
+            cell = tableView.dequeueReusableCellWithIdentifier("Sound") as? UITableViewCell
         }
         
         cell?.textLabel?.text = subMenu[indexPath.row]
         cell?.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
-
+        cell?.selectionStyle = UITableViewCellSelectionStyle.Blue
+        
         return cell!
     }
+    
 }

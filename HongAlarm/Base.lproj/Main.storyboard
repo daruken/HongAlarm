@@ -1,52 +1,73 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="alX-Pv-vOD">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="ufC-wZ-h7g">
+        <!--알람-->
+        <scene sceneID="TCs-ou-DS1">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="HongAlarm" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Axf-Lj-cv0" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
-                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                        <viewControllerLayoutGuide type="top" id="bks-y4-YwT"/>
+                        <viewControllerLayoutGuide type="bottom" id="0GM-Ee-o7X"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="알람" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vXn-zx-aKm">
-                                <rect key="frame" x="173" y="32" width="57" height="28"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5UT-ID-Eo8">
-                                <rect key="frame" x="6" y="31" width="30" height="30"/>
-                                <state key="normal" title="편집">
+                    <view key="view" contentMode="scaleToFill" id="way-zY-nLi">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="알람" id="9Fb-nQ-XLB">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="as7-qu-AIF">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="tfe-Ub-INU">
+                                <rect key="frame" x="-23" y="-15" width="92" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Edit">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="79k-9m-1ol">
-                                <rect key="frame" x="343" y="31" width="30" height="30"/>
-                                <state key="normal" title="+">
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="qgy-dw-oip">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Izn-uu-thq">
+                                <rect key="frame" x="-23" y="-15" width="92" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="pTj-hd-8RD" kind="show" id="g6d-kF-rUU"/>
+                                    <segue destination="pTj-hd-8RD" kind="show" id="W5R-L0-hwZ"/>
                                 </connections>
                             </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="GZG-sX-Qby"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zP9-kz-xU2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="186" y="-67"/>
+            <point key="canvasLocation" x="502" y="-285"/>
         </scene>
-        <!--View Edit Controller-->
+        <!--요일-->
+        <scene sceneID="EUi-57-29D">
+            <objects>
+                <viewController id="2EE-XD-Zrm" customClass="ViewSetDayOfWeek" customModule="HongAlarm" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NRf-FG-Ob5"/>
+                        <viewControllerLayoutGuide type="bottom" id="SMN-SN-Vyj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xOE-Gl-Mzk">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="요일" id="uhb-go-6aH">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="8V4-RB-cXd"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6HC-z2-fPt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1894" y="-285"/>
+        </scene>
+        <!--알람 추가-->
         <scene sceneID="DlO-It-0Wq">
             <objects>
                 <viewController id="pTj-hd-8RD" customClass="ViewEditController" customModule="HongAlarm" customModuleProvider="target" sceneMemberID="viewController">
@@ -55,7 +76,7 @@
                         <viewControllerLayoutGuide type="bottom" id="ugV-cu-IRK"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="6jC-3G-UzE">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="알람 추가" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a0W-SC-4Vv">
@@ -69,9 +90,6 @@
                                 <state key="normal" title="취소">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <segue destination="vXZ-lx-hvc" kind="show" id="zIx-l1-h1w"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JMJ-16-69B">
                                 <rect key="frame" x="336" y="28" width="46" height="30"/>
@@ -98,8 +116,30 @@
                                 <rect key="frame" x="168" y="60" width="50" height="200"/>
                             </pickerView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="URL-Vx-nuZ">
-                                <rect key="frame" x="0.0" y="260" width="361" height="170"/>
+                                <rect key="frame" x="0.0" y="260" width="361" height="115"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Week" id="E6B-Rq-Ws4">
+                                        <rect key="frame" x="0.0" y="0.0" width="361" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="E6B-Rq-Ws4" id="sxP-8i-H3F">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="aXc-9D-TOi" kind="show" id="LSF-rh-Usx"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Sound" id="i6i-cm-HYJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="361" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="i6i-cm-HYJ" id="tEy-Zp-OeR">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="JPt-XQ-Bpp" kind="show" id="R7m-52-vk3"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="pTj-hd-8RD" id="naM-Me-JZF"/>
                                 </connections>
@@ -107,7 +147,21 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Wzi-NV-Hb9"/>
+                    <navigationItem key="navigationItem" title="알람 추가" id="sPf-sv-QJC">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="twH-IK-pam"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="6Ev-jl-sl6">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Xm0-1a-1hJ">
+                                <rect key="frame" x="-23" y="-15" width="92" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="저장">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addAlarmList:" destination="pTj-hd-8RD" eventType="touchDown" id="zzI-CA-iSO"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="PickerAmPm" destination="qsh-Uq-Vku" id="78B-5x-uaF"/>
                         <outlet property="PickerHour" destination="nZ7-li-3ZW" id="C3G-0l-zyq"/>
@@ -117,7 +171,83 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vsI-WV-dxo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="186" y="757"/>
+            <point key="canvasLocation" x="974" y="-285"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="rKW-de-ZMF">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="alX-Pv-vOD" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fzC-o8-fgR">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Axf-Lj-cv0" kind="relationship" relationship="rootViewController" id="wmu-R2-oTV"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qbm-Ps-e0I" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="32" y="-285"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="hbm-aC-MV6">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aXc-9D-TOi" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ms4-ob-EKR">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="2EE-XD-Zrm" kind="relationship" relationship="rootViewController" id="OfY-X1-HJo"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vo5-uG-Dlv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1435" y="-285"/>
+        </scene>
+        <!--사운드 설정-->
+        <scene sceneID="elq-pV-hlc">
+            <objects>
+                <viewController id="u48-fP-9Wv" customClass="ViewSetSoundForAlarm" customModule="HongAlarm" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GwH-Ds-EV7"/>
+                        <viewControllerLayoutGuide type="bottom" id="v4K-xY-ZzT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Laz-Km-pfB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="사운드 설정" id="Tdn-UZ-hHg">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="O6u-qN-pcG"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XTH-5f-vt7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1894" y="596"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="iB2-p1-DgA">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JPt-XQ-Bpp" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2cB-bg-HPb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="u48-fP-9Wv" kind="relationship" relationship="rootViewController" id="znS-ey-m6t"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wB3-T3-0ID" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1435" y="596"/>
         </scene>
     </scenes>
 </document>
