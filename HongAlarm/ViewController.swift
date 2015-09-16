@@ -13,12 +13,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        let date = NSDate()
-        let calendar = NSCalendar.currentCalendar()
-        let components = calendar.components(.CalendarUnitHour | .CalendarUnitMinute, fromDate: date)
-        let hour = components.hour
-        let minutes = components.minute
     }
     
     override func didReceiveMemoryWarning() {

@@ -71,6 +71,11 @@ class ViewEditController : UIViewController, UIPickerViewDelegate, UIPickerViewD
             PickerMinute.selectRow(minuteRow, inComponent: 0, animated: false)
         }
 
+ 
+        didSelectedAmPm = (ampm+1) * 10000
+        didSelectedHour = (hour+1) * 100
+        didSelectedMinute = minute
+
     }
 
     func hourForRow(row: Int) -> Int {
