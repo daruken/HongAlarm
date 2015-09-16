@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A61A3E2A1BA9B77700C221CC /* ViewEditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61A3E291BA9B77700C221CC /* ViewEditController.swift */; };
 		A6C3BB7E1B4569CE003374A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C3BB7D1B4569CE003374A0 /* AppDelegate.swift */; };
 		A6C3BB801B4569CE003374A0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C3BB7F1B4569CE003374A0 /* ViewController.swift */; };
 		A6C3BB831B4569CE003374A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6C3BB811B4569CE003374A0 /* Main.storyboard */; };
@@ -15,7 +16,6 @@
 		A6C3BB941B4569CE003374A0 /* HongAlarmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C3BB931B4569CE003374A0 /* HongAlarmTests.swift */; };
 		A6E234741BA3D7D700A27388 /* ViewSetSoundForAlarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E234731BA3D7D700A27388 /* ViewSetSoundForAlarm.swift */; };
 		A6E541A11B9DBEDC00E13DE5 /* ViewSetDayOfWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E541A01B9DBEDC00E13DE5 /* ViewSetDayOfWeek.swift */; };
-		A6F7AA191B4BF57A00C5E266 /* ViewEditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F7AA181B4BF57A00C5E266 /* ViewEditController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A61A3E291BA9B77700C221CC /* ViewEditController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewEditController.swift; sourceTree = "<group>"; };
 		A6C3BB781B4569CE003374A0 /* HongAlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HongAlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6C3BB7C1B4569CE003374A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A6C3BB7D1B4569CE003374A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -41,7 +42,6 @@
 		A6C3BB931B4569CE003374A0 /* HongAlarmTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HongAlarmTests.swift; sourceTree = "<group>"; };
 		A6E234731BA3D7D700A27388 /* ViewSetSoundForAlarm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewSetSoundForAlarm.swift; sourceTree = "<group>"; };
 		A6E541A01B9DBEDC00E13DE5 /* ViewSetDayOfWeek.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewSetDayOfWeek.swift; sourceTree = "<group>"; };
-		A6F7AA181B4BF57A00C5E266 /* ViewEditController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewEditController.swift; path = ../ViewEditController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +85,7 @@
 			children = (
 				A6C3BB7D1B4569CE003374A0 /* AppDelegate.swift */,
 				A6C3BB7F1B4569CE003374A0 /* ViewController.swift */,
-				A6F7AA181B4BF57A00C5E266 /* ViewEditController.swift */,
+				A61A3E291BA9B77700C221CC /* ViewEditController.swift */,
 				A6E541A01B9DBEDC00E13DE5 /* ViewSetDayOfWeek.swift */,
 				A6E234731BA3D7D700A27388 /* ViewSetSoundForAlarm.swift */,
 				A6C3BB811B4569CE003374A0 /* Main.storyboard */,
@@ -221,9 +221,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A61A3E2A1BA9B77700C221CC /* ViewEditController.swift in Sources */,
 				A6C3BB801B4569CE003374A0 /* ViewController.swift in Sources */,
 				A6C3BB7E1B4569CE003374A0 /* AppDelegate.swift in Sources */,
-				A6F7AA191B4BF57A00C5E266 /* ViewEditController.swift in Sources */,
 				A6E234741BA3D7D700A27388 /* ViewSetSoundForAlarm.swift in Sources */,
 				A6E541A11B9DBEDC00E13DE5 /* ViewSetDayOfWeek.swift in Sources */,
 			);
