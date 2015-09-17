@@ -42,8 +42,9 @@ class ViewEditController : UIViewController, UIPickerViewDelegate, UIPickerViewD
         
         let date = NSDate()
         let calendar = NSCalendar.currentCalendar()
-        let components = calendar.components(.CalendarUnitHour | .CalendarUnitMinute, fromDate: date)
-        
+        let unit: NSCalendarUnit = [.Year, .Month, .Day, .Hour, .Minute, .Second]
+        let components = calendar.components(unit, fromDate: date)
+       
         var ampm = 0
         var hour = components.hour
         let minute = components.minute
@@ -87,14 +88,17 @@ class ViewEditController : UIViewController, UIPickerViewDelegate, UIPickerViewD
     }
   
     func hourForValue(value: Int) -> Int? {
-        if let valueIndex = find(ArrayHour, value) {
+        if let valueIndex = ArrayHour.indexOf(value) {
             return hourViewMiddle + value
         }
         return nil
     }
     
     func minuteForValue(value: Int) -> Int? {
-        if let valueIndex = find(ArrayMinute, value) {
+        //if let valueIndex = find(ArrayMinute, value) {
+        
+        
+        if let valueIndex = ArrayMinute.indexOf(value) {
             return minuteViewMiddle + value
         }
         return nil
@@ -177,17 +181,17 @@ class ViewEditController : UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        var cell = tableView.dequeueReusableCellWithIdentifier("Week") as? UITableViewCell
+        var cell = tableView.dequeueReusableCellWithIdentifier("Week")
         var subMenu = [
             "요일",
             "사운드"
         ]
         
         if( indexPath.row == 0 ){
-            cell = tableView.dequeueReusableCellWithIdentifier("Week") as? UITableViewCell
+            cell = tableView.dequeueReusableCellWithIdentifier("Week")
         }
         else{
-            cell = tableView.dequeueReusableCellWithIdentifier("Sound") as? UITableViewCell
+            cell = tableView.dequeueReusableCellWithIdentifier("Sound")
         }
         
         cell?.textLabel?.text = subMenu[indexPath.row]
