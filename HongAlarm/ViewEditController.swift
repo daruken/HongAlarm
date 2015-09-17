@@ -95,10 +95,7 @@ class ViewEditController : UIViewController, UIPickerViewDelegate, UIPickerViewD
     }
     
     func minuteForValue(value: Int) -> Int? {
-        //if let valueIndex = find(ArrayMinute, value) {
-        
-        
-        if let valueIndex = ArrayMinute.indexOf(value) {
+          if let valueIndex = ArrayMinute.indexOf(value) {
             return minuteViewMiddle + value
         }
         return nil
