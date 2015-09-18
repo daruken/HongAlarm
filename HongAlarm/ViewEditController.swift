@@ -102,7 +102,7 @@ class ViewEditController : UIViewController, UIPickerViewDelegate, UIPickerViewD
     }
     
     
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String {
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         switch pickerView {
         case PickerAmPm :
             return ArrayAmPm[row]
