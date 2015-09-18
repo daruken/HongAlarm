@@ -88,22 +88,21 @@ class ViewEditController : UIViewController, UIPickerViewDelegate, UIPickerViewD
     }
   
     func hourForValue(value: Int) -> Int? {
-        if let valueIndex = ArrayHour.indexOf(value) {
+        if (ArrayHour.indexOf(value) >= 0) {
             return hourViewMiddle + value
         }
         return nil
     }
     
     func minuteForValue(value: Int) -> Int? {
-          if let valueIndex = ArrayMinute.indexOf(value) {
+          if (ArrayMinute.indexOf(value) >= 0) {
             return minuteViewMiddle + value
         }
         return nil
     }
     
     
-    
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String {
         switch pickerView {
         case PickerAmPm :
             return ArrayAmPm[row]
