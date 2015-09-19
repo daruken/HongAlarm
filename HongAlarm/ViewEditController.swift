@@ -27,6 +27,11 @@ class ViewEditController : UIViewController, UIPickerViewDelegate, UIPickerViewD
     var didSelectedAmPm = 0
     var didSelectedHour = 0
     var didSelectedMinute = 0
+    
+    var subMenu = [
+        "요일",
+        "사운드"
+    ]
     var alarmList = Dictionary<Int, Int>()
     
     override func viewDidLoad() {
@@ -172,23 +177,12 @@ class ViewEditController : UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return 2;
+        return self.subMenu.count;
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        var cell = tableView.dequeueReusableCellWithIdentifier("Week")
-        var subMenu = [
-            "요일",
-            "사운드"
-        ]
-        
-        if( indexPath.row == 0 ){
-            cell = tableView.dequeueReusableCellWithIdentifier("Week")
-        }
-        else{
-            cell = tableView.dequeueReusableCellWithIdentifier("Sound")
-        }
+        let cell = tableView.dequeueReusableCellWithIdentifier("Week")
         
         cell?.textLabel?.text = subMenu[indexPath.row]
         cell?.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
