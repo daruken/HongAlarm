@@ -60,7 +60,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Sfh-nE-ujV">
-                                <rect key="frame" x="-1" y="72" width="358" height="512"/>
+                                <rect key="frame" x="-1" y="16" width="358" height="408"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Monday" id="cS8-UW-FEd">
@@ -122,14 +122,24 @@
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="2EE-XD-Zrm" id="uEz-Mf-bTJ"/>
+                                    <outlet property="delegate" destination="2EE-XD-Zrm" id="y82-ss-Q1W"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lQe-fe-Vuq">
+                                <rect key="frame" x="88" y="576" width="103" height="53"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="요일" id="uhb-go-6aH">
                         <barButtonItem key="backBarButtonItem" title="Back" id="8V4-RB-cXd"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="testLabel" destination="lQe-fe-Vuq" id="olm-1W-8oZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6HC-z2-fPt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

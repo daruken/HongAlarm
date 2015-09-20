@@ -11,7 +11,7 @@ import UIKit
 
 var ArrayAmPm = ["오전", "오후"]
 let ArrayHour = Array(1...12)
-let ArrayMinute = Array(0...59)
+let ArrayMinute = Array(00...59)
 
 private let hourViewRows = 1200
 private let minuteViewRows = 6000
@@ -63,10 +63,13 @@ class ViewEditController : UIViewController, UIPickerViewDelegate, UIPickerViewD
             ampm = 1
             hour = hour - 13
         }
+        else if ( hour == 0 ){
+            hour = 11
+        }
         else{
             ampm = 0
         }
-
+        
         PickerAmPm.selectRow(ampm, inComponent: 0, animated: false)
         
         if let hourRow = hourForValue(hour) {
@@ -172,7 +175,9 @@ class ViewEditController : UIViewController, UIPickerViewDelegate, UIPickerViewD
 
     @IBAction func addAlarmList(sender: AnyObject) {
         let sum = didSelectedAmPm + didSelectedHour + didSelectedMinute
-        testLabel.text = String(sum) + " : " + "Hello"
+        let checkDay = variables.checkDay
+        testLabel.text = String(sum) + " : " + " " + String(checkDay)
+        variables.checkDay = 10000000
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
@@ -182,7 +187,14 @@ class ViewEditController : UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Week")
+        var cell = tableView.dequeueReusableCellWithIdentifier("Week")
+        
+        if( indexPath.row == 0 ){
+            cell = tableView.dequeueReusableCellWithIdentifier("Week")
+        }
+        else{
+            cell = tableView.dequeueReusableCellWithIdentifier("Sound")
+        }
         
         cell?.textLabel?.text = subMenu[indexPath.row]
         cell?.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
