@@ -18,6 +18,21 @@ private let minuteViewRows = 6000
 private let hourViewMiddle = ((hourViewRows / ArrayHour.count) / 2) * ArrayHour.count
 private let minuteViewMiddle = ((minuteViewRows / ArrayMinute.count) / 2) * ArrayMinute.count
 
+struct alarmInventory {
+    var checkTime: Int
+    var checkDay: Int
+    
+    init(checkTime: Int, checkDay: Int)
+    {
+        self.checkTime = checkTime
+        self.checkDay = checkDay
+    }
+}
+
+struct alarmList{
+    static var myAlarmList: [alarmInventory] = []
+}
+
 class ViewEditController : UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
     
     @IBOutlet weak var PickerAmPm: UIPickerView!
@@ -32,7 +47,6 @@ class ViewEditController : UIViewController, UIPickerViewDelegate, UIPickerViewD
         "요일",
         "사운드"
     ]
-    var alarmList = Dictionary<Int, Int>()
     
     override func viewDidLoad() {
         
@@ -167,16 +181,15 @@ class ViewEditController : UIViewController, UIPickerViewDelegate, UIPickerViewD
         return 0
     }
     
-    
-    @IBOutlet weak var testLabel: UILabel!
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
     }
 
     @IBAction func addAlarmList(sender: AnyObject) {
-        let sum = didSelectedAmPm + didSelectedHour + didSelectedMinute
+        let checkTime = didSelectedAmPm + didSelectedHour + didSelectedMinute
         let checkDay = variables.checkDay
-        testLabel.text = String(sum) + " : " + " " + String(checkDay)
+        let myAlarm: alarmInventory = alarmInventory(checkTime: checkTime, checkDay: checkDay)
+        alarmList.myAlarmList.append(myAlarm)
         variables.checkDay = 10000000
     }
     

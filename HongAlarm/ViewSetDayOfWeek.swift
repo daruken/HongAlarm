@@ -23,9 +23,7 @@ class ViewSetDayOfWeek: UIViewController, UITableViewDataSource, UITableViewDele
         "토요일",
         "일요일"
     ]
-    
-    @IBOutlet weak var testLabel: UILabel!
-    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -49,8 +47,9 @@ class ViewSetDayOfWeek: UIViewController, UITableViewDataSource, UITableViewDele
         return cell!
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) { 
-        if ( indexPath.row == 0 ){
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        switch indexPath.row {
+        case 0 :
             let cell = tableView.cellForRowAtIndexPath(indexPath)
             if ( cell?.accessoryType == .Checkmark ){
                 cell?.accessoryType = .None
@@ -59,7 +58,7 @@ class ViewSetDayOfWeek: UIViewController, UITableViewDataSource, UITableViewDele
                 cell?.accessoryType = .Checkmark
                 variables.checkDay += 1000000
             }
-        }else if( indexPath.row == 1 ){
+        case 1 :
             let cell = tableView.cellForRowAtIndexPath(indexPath)
             if ( cell?.accessoryType == .Checkmark ){
                 cell?.accessoryType = .None
@@ -68,7 +67,7 @@ class ViewSetDayOfWeek: UIViewController, UITableViewDataSource, UITableViewDele
                 cell?.accessoryType = .Checkmark
                 variables.checkDay += 100000
             }
-        }else if( indexPath.row == 2 ){
+        case 2 :
             let cell = tableView.cellForRowAtIndexPath(indexPath)
             if ( cell?.accessoryType == .Checkmark ){
                 cell?.accessoryType = .None
@@ -77,7 +76,7 @@ class ViewSetDayOfWeek: UIViewController, UITableViewDataSource, UITableViewDele
                 cell?.accessoryType = .Checkmark
                 variables.checkDay += 10000
             }
-        }else if( indexPath.row == 3 ){
+        case 3 :
             let cell = tableView.cellForRowAtIndexPath(indexPath)
             if ( cell?.accessoryType == .Checkmark ){
                 cell?.accessoryType = .None
@@ -86,7 +85,7 @@ class ViewSetDayOfWeek: UIViewController, UITableViewDataSource, UITableViewDele
                 cell?.accessoryType = .Checkmark
                 variables.checkDay += 1000
             }
-        }else if( indexPath.row == 4 ){
+        case 4 :
             let cell = tableView.cellForRowAtIndexPath(indexPath)
             if ( cell?.accessoryType == .Checkmark ){
                 cell?.accessoryType = .None
@@ -95,16 +94,16 @@ class ViewSetDayOfWeek: UIViewController, UITableViewDataSource, UITableViewDele
                 cell?.accessoryType = .Checkmark
                 variables.checkDay += 100
             }
-        }else if( indexPath.row == 5 ){
+        case 5 :
             let cell = tableView.cellForRowAtIndexPath(indexPath)
             if ( cell?.accessoryType == .Checkmark ){
-                cell?.accessoryType = .None
-                variables.checkDay -= 10
+            cell?.accessoryType = .None
+            variables.checkDay -= 10
             }else{
-                cell?.accessoryType = .Checkmark
-                variables.checkDay += 10
+            cell?.accessoryType = .Checkmark
+            variables.checkDay += 10
             }
-        }else{
+        case 6 :
             let cell = tableView.cellForRowAtIndexPath(indexPath)
             if ( cell?.accessoryType == .Checkmark ){
                 cell?.accessoryType = .None
@@ -113,6 +112,9 @@ class ViewSetDayOfWeek: UIViewController, UITableViewDataSource, UITableViewDele
                 cell?.accessoryType = .Checkmark
                 variables.checkDay += 1
             }
+        default :
+            break
         }
+        
     }
 }
