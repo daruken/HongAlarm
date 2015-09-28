@@ -10,17 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var bossLabel: UILabel!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        if( !alarmList.myAlarmList.isEmpty ){
-        bossLabel.text = String(alarmList.myAlarmList[0].checkTime) + " : " + String(alarmList.myAlarmList[0].checkDay)
-        }else{
-            bossLabel.text = "empty"
-        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -33,13 +25,24 @@ class ViewController: UIViewController {
     }
     
     func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return alarmList.myAlarmList.count
     }
     
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
         let cell = tableView.dequeueReusableCellWithIdentifier("alarmCell", forIndexPath: indexPath) as! AlarmTableViewCell
         
-        cell.labUserName.text = "Name"
+        if( (alarmList.myAlarmList[indexPath.row].checkTime / 10000) == 1 ){
+            cell.ampmLabel.text = "오전"
+        }else{
+            cell.ampmLabel.text = "오후"
+        }
+        
+        
+        let hour = alarmList.myAlarmList[indexPath.row].checkTime%10000/100
+        let minute  = alarmList.myAlarmList[indexPath.row].checkTime%10000%100
+        
+        cell.timeLabel.text = String().stringByAppendingFormat("%.2d", hour) + " : " + String().stringByAppendingFormat("%.2d",minute)
+
         return cell
     }
 }

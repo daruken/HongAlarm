@@ -129,9 +129,9 @@ class ViewEditController : UIViewController, UIPickerViewDelegate, UIPickerViewD
         case PickerAmPm :
             return ArrayAmPm[row]
         case PickerHour :
-            return "\(hourForRow(row))"
+            return String().stringByAppendingFormat("%.2d",hourForRow(row))
         case PickerMinute :
-            return "\(minuteForRow(row))"
+            return String().stringByAppendingFormat("%.2d",minuteForRow(row))
         default :
             break
         }

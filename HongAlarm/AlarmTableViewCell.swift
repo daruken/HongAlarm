@@ -11,18 +11,21 @@ import UIKit
 
 class AlarmTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var labUserName: UILabel!
+    @IBOutlet weak var ampmLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        contentView.addSubview(labUserName)
+        contentView.addSubview(ampmLabel)
+        contentView.addSubview(timeLabel)
 
         let viewsDict = [
-            "username" : labUserName,
+            "ampm" : ampmLabel,
+            "time" : timeLabel,
         ]
         
-        contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-[username]-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewsDict))
+        contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-[ampm]-[time]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewsDict))
     }
     
 }
