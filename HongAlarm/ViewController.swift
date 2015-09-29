@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -37,13 +39,25 @@ class ViewController: UIViewController {
             cell.ampmLabel.text = "오후"
         }
         
-        
         let hour = alarmList.myAlarmList[indexPath.row].checkTime%10000/100
         let minute  = alarmList.myAlarmList[indexPath.row].checkTime%10000%100
         
         cell.timeLabel.text = String().stringByAppendingFormat("%.2d", hour) + " : " + String().stringByAppendingFormat("%.2d",minute)
-
-        return cell
+        
+        if cell.alarmSwitch.on {
+            alarmList.myAlarmList[indexPath.row].checkSwitch = true
+            cell.backgroundColor = UIColor.whiteColor()
+        }else{
+            alarmList.myAlarmList[indexPath.row].checkSwitch = false
+            cell.backgroundColor = UIColor.groupTableViewBackgroundColor()
+        }
+        
+       return cell
     }
+
+    @IBAction func pressedSwitch(sender: AnyObject) {
+        self.tableView.reloadData()
+    }
+ 
 }
 

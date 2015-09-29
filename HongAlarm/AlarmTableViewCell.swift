@@ -6,26 +6,28 @@
 //  Copyright © 2015년 JeonHongYeol. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 class AlarmTableViewCell: UITableViewCell {
     
     @IBOutlet weak var ampmLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
-
+    @IBOutlet weak var alarmSwitch: UISwitch!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
         contentView.addSubview(ampmLabel)
         contentView.addSubview(timeLabel)
-
+        contentView.addSubview(alarmSwitch)
+  
         let viewsDict = [
             "ampm" : ampmLabel,
             "time" : timeLabel,
+            "alarm": alarmSwitch,
         ]
         
-        contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-[ampm]-[time]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewsDict))
+        contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-[ampm]-[time]-[alarm]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewsDict))
     }
     
 }

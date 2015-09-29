@@ -21,11 +21,13 @@ private let minuteViewMiddle = ((minuteViewRows / ArrayMinute.count) / 2) * Arra
 struct alarmInventory {
     var checkTime: Int
     var checkDay: Int
+    var checkSwitch: Bool
     
     init(checkTime: Int, checkDay: Int)
     {
         self.checkTime = checkTime
         self.checkDay = checkDay
+        self.checkSwitch = true
     }
 }
 
