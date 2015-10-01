@@ -8,9 +8,12 @@
 
 import UIKit
 
+struct globalVariableSound {
+    static var checkSound: Int = 1
+}
+
 class ViewSetSoundForAlarm: UIViewController {
-    var passedValue: String!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

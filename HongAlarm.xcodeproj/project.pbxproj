@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A61A3E2A1BA9B77700C221CC /* ViewEditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61A3E291BA9B77700C221CC /* ViewEditController.swift */; };
+		A621566E1BBD57B200646E47 /* hope.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A621566D1BBD57B200646E47 /* hope.mp3 */; settings = {ASSET_TAGS = (); }; };
 		A6C3BB7E1B4569CE003374A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C3BB7D1B4569CE003374A0 /* AppDelegate.swift */; };
 		A6C3BB801B4569CE003374A0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C3BB7F1B4569CE003374A0 /* ViewController.swift */; };
 		A6C3BB831B4569CE003374A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6C3BB811B4569CE003374A0 /* Main.storyboard */; };
@@ -31,6 +32,7 @@
 
 /* Begin PBXFileReference section */
 		A61A3E291BA9B77700C221CC /* ViewEditController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewEditController.swift; sourceTree = "<group>"; };
+		A621566D1BBD57B200646E47 /* hope.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = hope.mp3; path = ../../../Downloads/hope.mp3; sourceTree = "<group>"; };
 		A6C3BB781B4569CE003374A0 /* HongAlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HongAlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6C3BB7C1B4569CE003374A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A6C3BB7D1B4569CE003374A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 		A6C3BB7B1B4569CE003374A0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A621566D1BBD57B200646E47 /* hope.mp3 */,
 				A6C3BB7C1B4569CE003374A0 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -208,6 +211,7 @@
 			files = (
 				A6C3BB831B4569CE003374A0 /* Main.storyboard in Resources */,
 				A6C3BB881B4569CE003374A0 /* LaunchScreen.xib in Resources */,
+				A621566E1BBD57B200646E47 /* hope.mp3 in Resources */,
 				A6C3BB851B4569CE003374A0 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

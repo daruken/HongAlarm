@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct variables {
+struct globalVariableDay {
     static var checkDay: Int = 10000000
 }
 
@@ -53,64 +53,64 @@ class ViewSetDayOfWeek: UIViewController, UITableViewDataSource, UITableViewDele
             let cell = tableView.cellForRowAtIndexPath(indexPath)
             if ( cell?.accessoryType == .Checkmark ){
                 cell?.accessoryType = .None
-                variables.checkDay -= 1000000
+                globalVariableDay.checkDay -= 1000000
             }else{
                 cell?.accessoryType = .Checkmark
-                variables.checkDay += 1000000
+                globalVariableDay.checkDay += 1000000
             }
         case 1 :
             let cell = tableView.cellForRowAtIndexPath(indexPath)
             if ( cell?.accessoryType == .Checkmark ){
                 cell?.accessoryType = .None
-                variables.checkDay -= 100000
+                globalVariableDay.checkDay -= 100000
             }else{
                 cell?.accessoryType = .Checkmark
-                variables.checkDay += 100000
+                globalVariableDay.checkDay += 100000
             }
         case 2 :
             let cell = tableView.cellForRowAtIndexPath(indexPath)
             if ( cell?.accessoryType == .Checkmark ){
                 cell?.accessoryType = .None
-                variables.checkDay -= 10000
+                globalVariableDay.checkDay -= 10000
             }else{
                 cell?.accessoryType = .Checkmark
-                variables.checkDay += 10000
+                globalVariableDay.checkDay += 10000
             }
         case 3 :
             let cell = tableView.cellForRowAtIndexPath(indexPath)
             if ( cell?.accessoryType == .Checkmark ){
                 cell?.accessoryType = .None
-                variables.checkDay -= 1000
+                globalVariableDay.checkDay -= 1000
             }else{
                 cell?.accessoryType = .Checkmark
-                variables.checkDay += 1000
+                globalVariableDay.checkDay += 1000
             }
         case 4 :
             let cell = tableView.cellForRowAtIndexPath(indexPath)
             if ( cell?.accessoryType == .Checkmark ){
                 cell?.accessoryType = .None
-                variables.checkDay -= 100
+                globalVariableDay.checkDay -= 100
             }else{
                 cell?.accessoryType = .Checkmark
-                variables.checkDay += 100
+                globalVariableDay.checkDay += 100
             }
         case 5 :
             let cell = tableView.cellForRowAtIndexPath(indexPath)
             if ( cell?.accessoryType == .Checkmark ){
             cell?.accessoryType = .None
-            variables.checkDay -= 10
+            globalVariableDay.checkDay -= 10
             }else{
             cell?.accessoryType = .Checkmark
-            variables.checkDay += 10
+            globalVariableDay.checkDay += 10
             }
         case 6 :
             let cell = tableView.cellForRowAtIndexPath(indexPath)
             if ( cell?.accessoryType == .Checkmark ){
                 cell?.accessoryType = .None
-                variables.checkDay -= 1
+                globalVariableDay.checkDay -= 1
             }else{
                 cell?.accessoryType = .Checkmark
-                variables.checkDay += 1
+                globalVariableDay.checkDay += 1
             }
         default :
             break

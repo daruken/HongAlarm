@@ -18,15 +18,29 @@ private let minuteViewRows = 6000
 private let hourViewMiddle = ((hourViewRows / ArrayHour.count) / 2) * ArrayHour.count
 private let minuteViewMiddle = ((minuteViewRows / ArrayMinute.count) / 2) * ArrayMinute.count
 
+/**
+ * checkTime : 11023
+               1    (1:am, 2:pm)
+                10  (10 hour)
+                  23(23 minute)
+               am 10:23
+ * checkDay  : 1001011
+               mtwtfss (mon,tue,wen,thu,fri,sat,sun)
+                       (1:ON, 0:OFF)
+ * checkSound  : (1:Sound, 2:Vibration, 3:Sound+Vibration)
+ * checkSwitch : ON / OFF
+*/
 struct alarmInventory {
     var checkTime: Int
     var checkDay: Int
+    var checkSound: Int
     var checkSwitch: Bool
     
-    init(checkTime: Int, checkDay: Int)
+    init(checkTime: Int, checkDay: Int, checkSound: Int)
     {
         self.checkTime = checkTime
         self.checkDay = checkDay
+        self.checkSound = checkSound
         self.checkSwitch = true
     }
 }
@@ -100,7 +114,6 @@ class ViewEditController : UIViewController, UIPickerViewDelegate, UIPickerViewD
         didSelectedAmPm = (ampm+1) * 10000
         didSelectedHour = (hour+1) * 100
         didSelectedMinute = minute
-
     }
 
     func hourForRow(row: Int) -> Int {
@@ -139,7 +152,6 @@ class ViewEditController : UIViewController, UIPickerViewDelegate, UIPickerViewD
         }
         return ""
     }
-    
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         var newHourRow = 0
@@ -183,25 +195,26 @@ class ViewEditController : UIViewController, UIPickerViewDelegate, UIPickerViewD
         return 0
     }
     
+    
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
     }
 
     @IBAction func addAlarmList(sender: AnyObject) {
         let checkTime = didSelectedAmPm + didSelectedHour + didSelectedMinute
-        let checkDay = variables.checkDay
-        let myAlarm: alarmInventory = alarmInventory(checkTime: checkTime, checkDay: checkDay)
+        let checkDay = globalVariableDay.checkDay
+        let checkSound = globalVariableSound.checkSound
+        let myAlarm: alarmInventory = alarmInventory(checkTime: checkTime, checkDay: checkDay, checkSound: checkSound)
         alarmList.myAlarmList.append(myAlarm)
-        variables.checkDay = 10000000
+        globalVariableDay.checkDay = 10000000
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-    {
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return self.subMenu.count;
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
-    {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         var cell = tableView.dequeueReusableCellWithIdentifier("Week")
         
         if( indexPath.row == 0 ){
@@ -214,7 +227,6 @@ class ViewEditController : UIViewController, UIPickerViewDelegate, UIPickerViewD
         cell?.textLabel?.text = subMenu[indexPath.row]
         cell?.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         cell?.selectionStyle = UITableViewCellSelectionStyle.Blue
-        
         return cell!
     }
     
