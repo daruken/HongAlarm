@@ -75,47 +75,49 @@ class ViewEditController : UIViewController, UIPickerViewDelegate, UIPickerViewD
         PickerMinute.delegate = self
         PickerMinute.dataSource = self
         
+        let currentTime = getCurrentTime()
+        
+        PickerAmPm.selectRow(currentTime.ampm, inComponent: 0, animated: false)
+        
+        if let hourRow = hourForValue(currentTime.hour) {
+            PickerHour.selectRow(hourRow, inComponent: 0, animated: false)
+        }
+
+        if let minuteRow = minuteForValue(currentTime.minute) {
+            PickerMinute.selectRow(minuteRow, inComponent: 0, animated: false)
+        }
+
+        didSelectedAmPm = (currentTime.ampm+1) * 10000
+        didSelectedHour = (currentTime.hour+1) * 100
+        didSelectedMinute = currentTime.minute
+    }
+    
+    func getCurrentTime() -> (ampm:Int, hour:Int, minute:Int){
         let date = NSDate()
         let calendar = NSCalendar.currentCalendar()
         let unit: NSCalendarUnit = [.Year, .Month, .Day, .Hour, .Minute, .Second]
         let components = calendar.components(unit, fromDate: date)
-       
+        
         var ampm = 0
         var hour = components.hour
         let minute = components.minute
         
-        if ( hour == 12 )
-        {
+        if ( hour == 12 ){
             ampm = 1
             hour = 11
-        }
-        else if ( 12 < hour && hour < 24  ){
+        }else if ( 12 < hour && hour < 24  ){
             ampm = 1
             hour = hour - 13
-        }
-        else if ( hour == 0 ){
+        }else if ( hour == 0 ){
             hour = 11
-        }
-        else{
+        }else{
             ampm = 0
+            hour = hour - 1
         }
         
-        PickerAmPm.selectRow(ampm, inComponent: 0, animated: false)
-        
-        if let hourRow = hourForValue(hour) {
-            PickerHour.selectRow(hourRow, inComponent: 0, animated: false)
-        }
-
-        if let minuteRow = minuteForValue(minute) {
-            PickerMinute.selectRow(minuteRow, inComponent: 0, animated: false)
-        }
-
- 
-        didSelectedAmPm = (ampm+1) * 10000
-        didSelectedHour = (hour+1) * 100
-        didSelectedMinute = minute
+        return (ampm, hour, minute)
     }
-
+    
     func hourForRow(row: Int) -> Int {
         return ArrayHour[row % ArrayHour.count]
     }
