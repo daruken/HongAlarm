@@ -92,7 +92,7 @@ class ViewEditController : UIViewController, UIPickerViewDelegate, UIPickerViewD
         didSelectedMinute = currentTime.minute
     }
     
-    func getCurrentTime() -> (ampm:Int, hour:Int, minute:Int){
+    func getCurrentTime() -> (ampm:Int, hour:Int, minute:Int, second:Int){
         let date = NSDate()
         let calendar = NSCalendar.currentCalendar()
         let unit: NSCalendarUnit = [.Year, .Month, .Day, .Hour, .Minute, .Second]
@@ -101,6 +101,7 @@ class ViewEditController : UIViewController, UIPickerViewDelegate, UIPickerViewD
         var ampm = 0
         var hour = components.hour
         let minute = components.minute
+        let second = components.second
         
         if ( hour == 12 ){
             ampm = 1
@@ -115,7 +116,7 @@ class ViewEditController : UIViewController, UIPickerViewDelegate, UIPickerViewD
             hour = hour - 1
         }
         
-        return (ampm, hour, minute)
+        return (ampm, hour, minute, second)
     }
     
     func hourForRow(row: Int) -> Int {
