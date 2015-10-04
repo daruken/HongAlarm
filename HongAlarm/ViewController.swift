@@ -24,7 +24,6 @@ class ViewController: UIViewController {
             while(true){
                 self.checkAlarmList()
             }
-            
         })
     }
     
@@ -39,14 +38,43 @@ class ViewController: UIViewController {
             
             for var i=0 ; i < alarmList.myAlarmList.count ; i++ {
                 
+                var checkDay = alarmList.myAlarmList[i].checkDay - 10000000
+                
+                switch ViewEditController().getTodayOfWeek() {
+                case 1:
+                    checkDay = checkDay / 1000000
+                case 2:
+                    checkDay = checkDay / 100000
+                case 3:
+                    checkDay = checkDay / 10000
+                case 4:
+                    checkDay = checkDay / 1000
+                case 5:
+                    checkDay = checkDay / 100
+                case 6:
+                    checkDay = checkDay / 10
+                case 7:
+                    checkDay = checkDay / 1
+                default :
+                        break
+                }
+                
+                if(checkDay == 0) {
+                    continue
+                }
+                
                 if(alarmList.myAlarmList[i].checkTime == currentCheckTime){
                     do {
-                        let path = NSBundle.mainBundle().pathForResource("hope.mp3", ofType:nil)!
-                        let url = NSURL(fileURLWithPath: path)
-                        let sound = try AVAudioPlayer(contentsOfURL: url)
-                        self.audioPlayer = sound
-                        sound.play()
-                        break;
+                        if(alarmList.myAlarmList[i].checkSwitch==true){
+                            let path = NSBundle.mainBundle().pathForResource("성시경_제주도의 푸른밤.mp3", ofType:nil)!
+                            let url = NSURL(fileURLWithPath: path)
+                            let sound = try AVAudioPlayer(contentsOfURL: url)
+                            self.audioPlayer = sound
+                            sound.play()
+                            break
+                        }else{
+                            continue
+                        }
                     } catch {
                         // couldn't load file :(
                     }

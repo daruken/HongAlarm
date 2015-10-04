@@ -25,7 +25,7 @@ private let minuteViewMiddle = ((minuteViewRows / ArrayMinute.count) / 2) * Arra
                   23(23 minute)
                am 10:23
  * checkDay  : 1001011
-               mtwtfss (mon,tue,wen,thu,fri,sat,sun)
+               mtwtfss (sun,mon,tue,wen,thu,fri,sat)
                        (1:ON, 0:OFF)
  * checkSound  : (1:Sound, 2:Vibration, 3:Sound+Vibration)
  * checkSwitch : ON / OFF
@@ -119,6 +119,14 @@ class ViewEditController : UIViewController, UIPickerViewDelegate, UIPickerViewD
         return (ampm, hour, minute, second)
     }
     
+    func getTodayOfWeek()->Int {
+        let calendar = NSCalendar.currentCalendar()
+        let date = NSDate()
+        let dateComponent =  calendar.components(NSCalendarUnit.Weekday, fromDate: date)
+        let weekDay = dateComponent.weekday
+        return weekDay
+    }
+    
     func hourForRow(row: Int) -> Int {
         return ArrayHour[row % ArrayHour.count]
     }
@@ -207,6 +215,7 @@ class ViewEditController : UIViewController, UIPickerViewDelegate, UIPickerViewD
         let checkTime = didSelectedAmPm + didSelectedHour + didSelectedMinute
         let checkDay = globalVariableDay.checkDay
         let checkSound = globalVariableSound.checkSound
+
         let myAlarm: alarmInventory = alarmInventory(checkTime: checkTime, checkDay: checkDay, checkSound: checkSound)
         alarmList.myAlarmList.append(myAlarm)
         globalVariableDay.checkDay = 10000000
