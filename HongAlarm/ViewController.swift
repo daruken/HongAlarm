@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     var audioPlayer = AVAudioPlayer()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -27,6 +27,12 @@ class ViewController: UIViewController {
         })
     }
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    
     func checkAlarmList(){
         if( alarmList.myAlarmList.count > 0 ){
             let currentTime = ViewEditController().getCurrentTime()
@@ -38,63 +44,100 @@ class ViewController: UIViewController {
             
             for var i=0 ; i < alarmList.myAlarmList.count ; i++ {
                 
-                var checkDay = alarmList.myAlarmList[i].checkDay - 10000000
-                
-                switch ViewEditController().getTodayOfWeek() {
-                case 1:
-                    checkDay = checkDay / 1000000
-                case 2:
-                    checkDay = checkDay / 100000
-                case 3:
-                    checkDay = checkDay / 10000
-                case 4:
-                    checkDay = checkDay / 1000
-                case 5:
-                    checkDay = checkDay / 100
-                case 6:
-                    checkDay = checkDay / 10
-                case 7:
-                    checkDay = checkDay / 1
-                default :
-                        break
-                }
-                
-                if(checkDay == 0) {
+                let today = ViewEditController().getTodayOfWeek()
+ 
+                if(checkDayOfWeekAlarmList(i, today: today) == false){
                     continue
                 }
-                
-                if(alarmList.myAlarmList[i].checkTime == currentCheckTime){
-                    do {
-                        if(alarmList.myAlarmList[i].checkSwitch==true){
-                            let path = NSBundle.mainBundle().pathForResource("성시경_제주도의 푸른밤.mp3", ofType:nil)!
-                            let url = NSURL(fileURLWithPath: path)
-                            let sound = try AVAudioPlayer(contentsOfURL: url)
-                            self.audioPlayer = sound
-                            sound.play()
-                            break
-                        }else{
-                            continue
-                        }
-                    } catch {
-                        // couldn't load file :(
+            
+                if(checkTimeAlarmList(i, currentCheckTime: currentCheckTime) == true){
+                   
+                    if(alarmList.myAlarmList[i].checkSwitch==true){
+                        playAlarmSound()
+                    }else{
+                        continue
                     }
                 }
             }
-            
+
             let sleepSecond:UInt32 = 60 - UInt32(currentTime.second)
             sleep(sleepSecond)
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func checkDayOfWeekAlarmList(index:Int, today:Int)->Bool{
+        switch today {
+        case 1:
+            if(alarmList.myAlarmList[index].checkDay.contains("Sun") == true){
+                return true
+            }else{
+                return false
+            }
+        case 2:
+            if(alarmList.myAlarmList[index].checkDay.contains("Mon") == true){
+                return true
+            }else{
+                return false
+            }
+        case 3:
+            if(alarmList.myAlarmList[index].checkDay.contains("Tue") == true){
+                return true
+            }else{
+                return false
+            }
+        case 4:
+            if(alarmList.myAlarmList[index].checkDay.contains("Wed") == true){
+                return true
+            }else{
+                return false
+            }
+        case 5:
+            if(alarmList.myAlarmList[index].checkDay.contains("Thu") == true){
+                return true
+            }else{
+                return false
+            }
+        case 6:
+            if(alarmList.myAlarmList[index].checkDay.contains("Fri") == true){
+                return true
+            }else{
+                return false
+            }
+        case 7:
+            if(alarmList.myAlarmList[index].checkDay.contains("Sat") == true){
+                return true
+            }else{
+                return false
+            }
+        default:
+            return false
+        }
     }
     
+    func checkTimeAlarmList(index:Int, currentCheckTime:Int)->Bool{
+        if(alarmList.myAlarmList[index].checkTime == currentCheckTime){
+            return true
+        }
+        return false
+    }
+    
+    func playAlarmSound(){
+        do {
+            let path = NSBundle.mainBundle().pathForResource("성시경_좋을텐데.mp3", ofType:nil)!
+            let url = NSURL(fileURLWithPath: path)
+            let sound = try AVAudioPlayer(contentsOfURL: url)
+            audioPlayer = sound
+            sound.play()
+        } catch {
+            // couldn't load file :(
+        }
+    }
+
+
     func numberOfSectionsInTableView(tableView: UITableView!) -> Int {
         return 1
     }
-    
+
     func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
         return alarmList.myAlarmList.count
     }

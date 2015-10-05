@@ -24,19 +24,18 @@ private let minuteViewMiddle = ((minuteViewRows / ArrayMinute.count) / 2) * Arra
                 10  (10 hour)
                   23(23 minute)
                am 10:23
- * checkDay  : 1001011
-               mtwtfss (sun,mon,tue,wen,thu,fri,sat)
-                       (1:ON, 0:OFF)
+ * checkDay  : Sun,Mon,Tue,Wed,Thu,Fri,Sat                    
  * checkSound  : (1:Sound, 2:Vibration, 3:Sound+Vibration)
  * checkSwitch : ON / OFF
 */
 struct alarmInventory {
     var checkTime: Int
-    var checkDay: Int
+    var checkDay = [String]()
     var checkSound: Int
     var checkSwitch: Bool
+
     
-    init(checkTime: Int, checkDay: Int, checkSound: Int)
+    init(checkTime: Int, checkDay: [String], checkSound: Int)
     {
         self.checkTime = checkTime
         self.checkDay = checkDay
@@ -218,7 +217,6 @@ class ViewEditController : UIViewController, UIPickerViewDelegate, UIPickerViewD
 
         let myAlarm: alarmInventory = alarmInventory(checkTime: checkTime, checkDay: checkDay, checkSound: checkSound)
         alarmList.myAlarmList.append(myAlarm)
-        globalVariableDay.checkDay = 10000000
     }
     
     

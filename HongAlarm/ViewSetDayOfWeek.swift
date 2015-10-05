@@ -9,7 +9,7 @@
 import UIKit
 
 struct globalVariableDay {
-    static var checkDay: Int = 10000000
+    static var checkDay = [String]()
 }
 
 class ViewSetDayOfWeek: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -49,72 +49,64 @@ class ViewSetDayOfWeek: UIViewController, UITableViewDataSource, UITableViewDele
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         switch indexPath.row {
-        case 0 :
+        case 0 : /* Sunday */
             let cell = tableView.cellForRowAtIndexPath(indexPath)
             if ( cell?.accessoryType == .Checkmark ){
                 cell?.accessoryType = .None
-                globalVariableDay.checkDay -= 1000000
             }else{
                 cell?.accessoryType = .Checkmark
-                globalVariableDay.checkDay += 1000000
+                globalVariableDay.checkDay.append("Sun")
             }
-        case 1 :
+        case 1 : /* Monday */
             let cell = tableView.cellForRowAtIndexPath(indexPath)
             if ( cell?.accessoryType == .Checkmark ){
                 cell?.accessoryType = .None
-                globalVariableDay.checkDay -= 100000
             }else{
                 cell?.accessoryType = .Checkmark
-                globalVariableDay.checkDay += 100000
+                globalVariableDay.checkDay.append("Mon")
             }
-        case 2 :
+        case 2 : /* Tuesday */
             let cell = tableView.cellForRowAtIndexPath(indexPath)
             if ( cell?.accessoryType == .Checkmark ){
                 cell?.accessoryType = .None
-                globalVariableDay.checkDay -= 10000
             }else{
                 cell?.accessoryType = .Checkmark
-                globalVariableDay.checkDay += 10000
+                globalVariableDay.checkDay.append("Tue")
             }
-        case 3 :
+        case 3 : /* Wednesday */
             let cell = tableView.cellForRowAtIndexPath(indexPath)
             if ( cell?.accessoryType == .Checkmark ){
                 cell?.accessoryType = .None
-                globalVariableDay.checkDay -= 1000
             }else{
                 cell?.accessoryType = .Checkmark
-                globalVariableDay.checkDay += 1000
+                globalVariableDay.checkDay.append("Wed")
             }
-        case 4 :
+        case 4 : /* Thursday */
             let cell = tableView.cellForRowAtIndexPath(indexPath)
             if ( cell?.accessoryType == .Checkmark ){
                 cell?.accessoryType = .None
-                globalVariableDay.checkDay -= 100
             }else{
                 cell?.accessoryType = .Checkmark
-                globalVariableDay.checkDay += 100
+                globalVariableDay.checkDay.append("Thu")
             }
-        case 5 :
-            let cell = tableView.cellForRowAtIndexPath(indexPath)
-            if ( cell?.accessoryType == .Checkmark ){
-            cell?.accessoryType = .None
-            globalVariableDay.checkDay -= 10
-            }else{
-            cell?.accessoryType = .Checkmark
-            globalVariableDay.checkDay += 10
-            }
-        case 6 :
+        case 5 : /* Friday */
             let cell = tableView.cellForRowAtIndexPath(indexPath)
             if ( cell?.accessoryType == .Checkmark ){
                 cell?.accessoryType = .None
-                globalVariableDay.checkDay -= 1
             }else{
                 cell?.accessoryType = .Checkmark
-                globalVariableDay.checkDay += 1
+                globalVariableDay.checkDay.append("Fri")
+            }
+        case 6 : /* Saturday */
+            let cell = tableView.cellForRowAtIndexPath(indexPath)
+            if ( cell?.accessoryType == .Checkmark ){
+                cell?.accessoryType = .None
+            }else{
+                cell?.accessoryType = .Checkmark
+                globalVariableDay.checkDay.append("Sat")
             }
         default :
             break
         }
-        
     }
 }

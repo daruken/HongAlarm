@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A61A3E2A1BA9B77700C221CC /* ViewEditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61A3E291BA9B77700C221CC /* ViewEditController.swift */; };
+		A679E9D31BC29F9600A572DD /* 성시경_좋을텐데.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A679E9D21BC29F9600A572DD /* 성시경_좋을텐데.mp3 */; settings = {ASSET_TAGS = (); }; };
 		A6C3BB7E1B4569CE003374A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C3BB7D1B4569CE003374A0 /* AppDelegate.swift */; };
 		A6C3BB801B4569CE003374A0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C3BB7F1B4569CE003374A0 /* ViewController.swift */; };
 		A6C3BB831B4569CE003374A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6C3BB811B4569CE003374A0 /* Main.storyboard */; };
@@ -17,7 +18,6 @@
 		A6D17B061BB8E6B4007C387A /* AlarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D17B051BB8E6B4007C387A /* AlarmTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
 		A6E234741BA3D7D700A27388 /* ViewSetSoundForAlarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E234731BA3D7D700A27388 /* ViewSetSoundForAlarm.swift */; };
 		A6E541A11B9DBEDC00E13DE5 /* ViewSetDayOfWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E541A01B9DBEDC00E13DE5 /* ViewSetDayOfWeek.swift */; };
-		A6F7C7F11BC0D46300BC91AD /* 성시경_제주도의 푸른밤.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A6F7C7F01BC0D46300BC91AD /* 성시경_제주도의 푸른밤.mp3 */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +32,7 @@
 
 /* Begin PBXFileReference section */
 		A61A3E291BA9B77700C221CC /* ViewEditController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewEditController.swift; sourceTree = "<group>"; };
+		A679E9D21BC29F9600A572DD /* 성시경_좋을텐데.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "성시경_좋을텐데.mp3"; path = "../../../Music/성시경_좋을텐데.mp3"; sourceTree = "<group>"; };
 		A6C3BB781B4569CE003374A0 /* HongAlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HongAlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6C3BB7C1B4569CE003374A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A6C3BB7D1B4569CE003374A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -45,7 +46,6 @@
 		A6D17B051BB8E6B4007C387A /* AlarmTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmTableViewCell.swift; sourceTree = "<group>"; };
 		A6E234731BA3D7D700A27388 /* ViewSetSoundForAlarm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewSetSoundForAlarm.swift; sourceTree = "<group>"; };
 		A6E541A01B9DBEDC00E13DE5 /* ViewSetDayOfWeek.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewSetDayOfWeek.swift; sourceTree = "<group>"; };
-		A6F7C7F01BC0D46300BC91AD /* 성시경_제주도의 푸른밤.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "성시경_제주도의 푸른밤.mp3"; path = "../../../Music/성시경_제주도의 푸른밤.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,7 +104,7 @@
 		A6C3BB7B1B4569CE003374A0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				A6F7C7F01BC0D46300BC91AD /* 성시경_제주도의 푸른밤.mp3 */,
+				A679E9D21BC29F9600A572DD /* 성시경_좋을텐데.mp3 */,
 				A6C3BB7C1B4569CE003374A0 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -211,7 +211,7 @@
 			files = (
 				A6C3BB831B4569CE003374A0 /* Main.storyboard in Resources */,
 				A6C3BB881B4569CE003374A0 /* LaunchScreen.xib in Resources */,
-				A6F7C7F11BC0D46300BC91AD /* 성시경_제주도의 푸른밤.mp3 in Resources */,
+				A679E9D31BC29F9600A572DD /* 성시경_좋을텐데.mp3 in Resources */,
 				A6C3BB851B4569CE003374A0 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
