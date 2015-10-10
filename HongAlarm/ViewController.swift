@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     var audioPlayer = AVAudioPlayer()
-    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -25,6 +25,15 @@ class ViewController: UIViewController {
                 self.checkAlarmList()
             }
         })
+        
+        self.navigationItem.leftBarButtonItem = self.editButtonItem()
+    }
+    
+    override func setEditing(editing: Bool, animated: Bool) {
+        // Toggles the edit button state
+        super.setEditing(editing, animated: animated)
+        // Toggles the actual editing actions appearing on a table view
+        tableView.setEditing(editing, animated: true)
     }
     
     override func didReceiveMemoryWarning() {
@@ -155,7 +164,7 @@ class ViewController: UIViewController {
         let minute  = alarmList.myAlarmList[indexPath.row].checkTime%10000%100
         
         cell.timeLabel.text = String().stringByAppendingFormat("%.2d", hour) + " : " + String().stringByAppendingFormat("%.2d",minute)
-        
+       
         if cell.alarmSwitch.on {
             alarmList.myAlarmList[indexPath.row].checkSwitch = true
             cell.backgroundColor = UIColor.whiteColor()
@@ -163,8 +172,8 @@ class ViewController: UIViewController {
             alarmList.myAlarmList[indexPath.row].checkSwitch = false
             cell.backgroundColor = UIColor.groupTableViewBackgroundColor()
         }
-        
-       return cell
+
+        return cell
     }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -173,10 +182,10 @@ class ViewController: UIViewController {
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
         }
     }
-
+    
     @IBAction func pressedSwitch(sender: AnyObject) {
         self.tableView.reloadData()
     }
-    
+   
 }
 
