@@ -25,15 +25,6 @@ class ViewController: UIViewController {
                 self.checkAlarmList()
             }
         })
-        
-        self.navigationItem.leftBarButtonItem = self.editButtonItem()
-    }
-    
-    override func setEditing(editing: Bool, animated: Bool) {
-        // Toggles the edit button state
-        super.setEditing(editing, animated: animated)
-        // Toggles the actual editing actions appearing on a table view
-        tableView.setEditing(editing, animated: true)
     }
     
     override func didReceiveMemoryWarning() {
@@ -172,6 +163,8 @@ class ViewController: UIViewController {
             alarmList.myAlarmList[indexPath.row].checkSwitch = false
             cell.backgroundColor = UIColor.groupTableViewBackgroundColor()
         }
+        
+        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
 
         return cell
     }
