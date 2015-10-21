@@ -23,7 +23,7 @@
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="alarmCell" rowHeight="70" id="4Re-Op-A9a" customClass="AlarmTableViewCell" customModule="HongAlarm" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="114" width="375" height="70"/>
+                                        <rect key="frame" x="0.0" y="50" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4Re-Op-A9a" id="ky2-Y0-cuf">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
@@ -208,7 +208,7 @@
                         <viewControllerLayoutGuide type="bottom" id="ugV-cu-IRK"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="6jC-3G-UzE">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J3Y-Sc-cF6">
@@ -336,7 +336,7 @@
                         <viewControllerLayoutGuide type="bottom" id="v4K-xY-ZzT"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Laz-Km-pfB">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
