@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import AudioToolbox
 
 class ViewController: UIViewController {
     
@@ -53,7 +54,17 @@ class ViewController: UIViewController {
                 if(checkTimeAlarmList(i, currentCheckTime: currentCheckTime) == true){
                    
                     if(alarmList.myAlarmList[i].checkSwitch==true){
-                        playAlarmSound()
+                        if (globalVariableSound.checkSound == 1){
+                            playAlarmSound()
+                        }
+                        else{
+                            var sec = 0
+                            while(sec < 100000){
+                                AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+                                sec++
+                            }
+                            
+                        }
                     }else{
                         continue
                     }

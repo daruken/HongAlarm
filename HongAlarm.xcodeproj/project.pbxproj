@@ -8,14 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		A61A3E2A1BA9B77700C221CC /* ViewEditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61A3E291BA9B77700C221CC /* ViewEditController.swift */; };
-		A679E9D31BC29F9600A572DD /* 성시경_좋을텐데.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A679E9D21BC29F9600A572DD /* 성시경_좋을텐데.mp3 */; settings = {ASSET_TAGS = (); }; };
+		A679E9D31BC29F9600A572DD /* 성시경_좋을텐데.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A679E9D21BC29F9600A572DD /* 성시경_좋을텐데.mp3 */; };
 		A6C3BB7E1B4569CE003374A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C3BB7D1B4569CE003374A0 /* AppDelegate.swift */; };
 		A6C3BB801B4569CE003374A0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C3BB7F1B4569CE003374A0 /* ViewController.swift */; };
 		A6C3BB831B4569CE003374A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6C3BB811B4569CE003374A0 /* Main.storyboard */; };
 		A6C3BB851B4569CE003374A0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6C3BB841B4569CE003374A0 /* Images.xcassets */; };
 		A6C3BB881B4569CE003374A0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6C3BB861B4569CE003374A0 /* LaunchScreen.xib */; };
 		A6C3BB941B4569CE003374A0 /* HongAlarmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C3BB931B4569CE003374A0 /* HongAlarmTests.swift */; };
-		A6D17B061BB8E6B4007C387A /* AlarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D17B051BB8E6B4007C387A /* AlarmTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
+		A6D17B061BB8E6B4007C387A /* AlarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D17B051BB8E6B4007C387A /* AlarmTableViewCell.swift */; };
 		A6E234741BA3D7D700A27388 /* ViewSetSoundForAlarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E234731BA3D7D700A27388 /* ViewSetSoundForAlarm.swift */; };
 		A6E541A11B9DBEDC00E13DE5 /* ViewSetDayOfWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E541A01B9DBEDC00E13DE5 /* ViewSetDayOfWeek.swift */; };
 /* End PBXBuildFile section */
@@ -178,6 +178,7 @@
 				TargetAttributes = {
 					A6C3BB771B4569CD003374A0 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = D9DG2TYPM8;
 					};
 					A6C3BB8C1B4569CE003374A0 = {
 						CreatedOnToolsVersion = 6.4;
@@ -364,10 +365,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = HongAlarm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "K.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -377,10 +380,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = HongAlarm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "K.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
