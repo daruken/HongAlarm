@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C3887F81F34560D00740501 /* music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0C3887F71F34560D00740501 /* music.mp3 */; };
 		A61A3E2A1BA9B77700C221CC /* ViewEditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61A3E291BA9B77700C221CC /* ViewEditController.swift */; };
-		A679E9D31BC29F9600A572DD /* 성시경_좋을텐데.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A679E9D21BC29F9600A572DD /* 성시경_좋을텐데.mp3 */; };
 		A6C3BB7E1B4569CE003374A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C3BB7D1B4569CE003374A0 /* AppDelegate.swift */; };
 		A6C3BB801B4569CE003374A0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C3BB7F1B4569CE003374A0 /* ViewController.swift */; };
 		A6C3BB831B4569CE003374A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6C3BB811B4569CE003374A0 /* Main.storyboard */; };
@@ -31,8 +31,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C3887F71F34560D00740501 /* music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = music.mp3; path = ../../../Music/music.mp3; sourceTree = "<group>"; };
 		A61A3E291BA9B77700C221CC /* ViewEditController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewEditController.swift; sourceTree = "<group>"; };
-		A679E9D21BC29F9600A572DD /* 성시경_좋을텐데.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "성시경_좋을텐데.mp3"; path = "../../../Music/성시경_좋을텐데.mp3"; sourceTree = "<group>"; };
 		A6C3BB781B4569CE003374A0 /* HongAlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HongAlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6C3BB7C1B4569CE003374A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A6C3BB7D1B4569CE003374A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -104,7 +104,7 @@
 		A6C3BB7B1B4569CE003374A0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				A679E9D21BC29F9600A572DD /* 성시경_좋을텐데.mp3 */,
+				0C3887F71F34560D00740501 /* music.mp3 */,
 				A6C3BB7C1B4569CE003374A0 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -212,9 +212,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C3887F81F34560D00740501 /* music.mp3 in Resources */,
 				A6C3BB831B4569CE003374A0 /* Main.storyboard in Resources */,
 				A6C3BB881B4569CE003374A0 /* LaunchScreen.xib in Resources */,
-				A679E9D31BC29F9600A572DD /* 성시경_좋을텐데.mp3 in Resources */,
 				A6C3BB851B4569CE003374A0 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -373,6 +373,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = D9DG2TYPM8;
 				INFOPLIST_FILE = HongAlarm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "K.$(PRODUCT_NAME:rfc1034identifier)";
@@ -389,6 +390,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = D9DG2TYPM8;
 				INFOPLIST_FILE = HongAlarm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "K.$(PRODUCT_NAME:rfc1034identifier)";
