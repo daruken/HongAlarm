@@ -28,28 +28,28 @@ class ViewSetSoundForAlarm: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return self.subMenu.count;
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
-        let cell = tableView.dequeueReusableCellWithIdentifier("Vibration")
+    func tableView(_ tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell{
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Vibration")
 
         cell?.textLabel?.text = subMenu[indexPath.row]
-        cell?.selectionStyle = UITableViewCellSelectionStyle.Blue
+        cell?.selectionStyle = UITableViewCellSelectionStyle.blue
         
         return cell!
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAtIndexPath indexPath: IndexPath) {
         
         if (indexPath.row == 0){
-            let cell = tableView.cellForRowAtIndexPath(indexPath)
-            if ( cell?.accessoryType == .Checkmark ){
-                cell?.accessoryType = .None
+            let cell = tableView.cellForRow(at: indexPath)
+            if ( cell?.accessoryType == .checkmark ){
+                cell?.accessoryType = .none
                 globalVariableSound.checkSound = 1
             }else{
-                cell?.accessoryType = .Checkmark
+                cell?.accessoryType = .checkmark
                 globalVariableSound.checkSound = 2
             }
         }

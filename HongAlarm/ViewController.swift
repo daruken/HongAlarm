@@ -18,10 +18,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        let qualityOfServiceClass = QOS_CLASS_BACKGROUND
-        let backgroundQueue = dispatch_get_global_queue(qualityOfServiceClass, 0)
+        let qualityOfServiceClass = DispatchQoS.QoSClass.background
+        let backgroundQueue = DispatchQueue.global(qos: qualityOfServiceClass)
         
-        dispatch_async(backgroundQueue, {
+        backgroundQueue.async(execute: {
             while(true){
                 self.checkAlarmList()
             }
@@ -43,7 +43,7 @@ class ViewController: UIViewController {
             let currentMinute = currentTime.minute
             let currentCheckTime = currentAmPm + currentHour + currentMinute
             
-            for var i=0 ; i < alarmList.myAlarmList.count ; i++ {
+            for i in 0  ..< alarmList.myAlarmList.count {
                 
                 let today = ViewEditController().getTodayOfWeek()
  
@@ -61,7 +61,7 @@ class ViewController: UIViewController {
                             var sec = 0
                             while(sec < 100000){
                                 AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
-                                sec++
+                                sec += 1
                             }
                             
                         }
@@ -76,7 +76,7 @@ class ViewController: UIViewController {
         }
     }
     
-    func checkDayOfWeekAlarmList(index:Int, today:Int)->Bool{
+    func checkDayOfWeekAlarmList(_ index:Int, today:Int)->Bool{
         switch today {
         case 1:
             if(alarmList.myAlarmList[index].checkDay.contains("Sun") == true){
@@ -125,7 +125,7 @@ class ViewController: UIViewController {
         }
     }
     
-    func checkTimeAlarmList(index:Int, currentCheckTime:Int)->Bool{
+    func checkTimeAlarmList(_ index:Int, currentCheckTime:Int)->Bool{
         if(alarmList.myAlarmList[index].checkTime == currentCheckTime){
             return true
         }
@@ -134,9 +134,9 @@ class ViewController: UIViewController {
     
     func playAlarmSound(){
         do {
-            let path = NSBundle.mainBundle().pathForResource("성시경_좋을텐데.mp3", ofType:nil)!
-            let url = NSURL(fileURLWithPath: path)
-            let sound = try AVAudioPlayer(contentsOfURL: url)
+            let path = Bundle.main.path(forResource: "music.mp3", ofType:nil)!
+            let url = URL(fileURLWithPath: path)
+            let sound = try AVAudioPlayer(contentsOf: url)
             audioPlayer = sound
             sound.play()
         } catch {
@@ -145,16 +145,16 @@ class ViewController: UIViewController {
     }
 
 
-    func numberOfSectionsInTableView(tableView: UITableView!) -> Int {
+    func numberOfSectionsInTableView(_ tableView: UITableView!) -> Int {
         return 1
     }
 
-    func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
         return alarmList.myAlarmList.count
     }
     
-    func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
-        let cell = tableView.dequeueReusableCellWithIdentifier("alarmCell", forIndexPath: indexPath) as! AlarmTableViewCell
+    func tableView(_ tableView: UITableView!, cellForRowAtIndexPath indexPath: IndexPath!) -> UITableViewCell! {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "alarmCell", for: indexPath) as! AlarmTableViewCell
         
         if( (alarmList.myAlarmList[indexPath.row].checkTime / 10000) == 1 ){
             cell.ampmLabel.text = "오전"
@@ -165,29 +165,29 @@ class ViewController: UIViewController {
         let hour = alarmList.myAlarmList[indexPath.row].checkTime%10000/100
         let minute  = alarmList.myAlarmList[indexPath.row].checkTime%10000%100
         
-        cell.timeLabel.text = String().stringByAppendingFormat("%.2d", hour) + " : " + String().stringByAppendingFormat("%.2d",minute)
+        cell.timeLabel.text = String().appendingFormat("%.2d", hour) + " : " + String().appendingFormat("%.2d",minute)
        
-        if cell.alarmSwitch.on {
+        if cell.alarmSwitch.isOn {
             alarmList.myAlarmList[indexPath.row].checkSwitch = true
-            cell.backgroundColor = UIColor.whiteColor()
+            cell.backgroundColor = UIColor.white
         }else{
             alarmList.myAlarmList[indexPath.row].checkSwitch = false
-            cell.backgroundColor = UIColor.groupTableViewBackgroundColor()
+            cell.backgroundColor = UIColor.groupTableViewBackground
         }
         
-        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+        cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
 
         return cell
     }
     
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if (editingStyle == UITableViewCellEditingStyle.Delete) {
-            alarmList.myAlarmList.removeAtIndex(indexPath.row)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+    func tableView(_ tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: IndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.delete) {
+            alarmList.myAlarmList.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
         }
     }
     
-    @IBAction func pressedSwitch(sender: AnyObject) {
+    @IBAction func pressedSwitch(_ sender: AnyObject) {
         self.tableView.reloadData()
     }
    

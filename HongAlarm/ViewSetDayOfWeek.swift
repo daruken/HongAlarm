@@ -34,75 +34,75 @@ class ViewSetDayOfWeek: UIViewController, UITableViewDataSource, UITableViewDele
         // Dispose of any resources that can be recreated.
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return self.subMenu.count;
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
-        let cell = tableView.dequeueReusableCellWithIdentifier("Monday")
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Monday")
         
         cell?.textLabel?.text = subMenu[indexPath.row]
-        cell?.selectionStyle = UITableViewCellSelectionStyle.Blue
+        cell?.selectionStyle = UITableViewCellSelectionStyle.blue
                 
         return cell!
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0 : /* Sunday */
-            let cell = tableView.cellForRowAtIndexPath(indexPath)
-            if ( cell?.accessoryType == .Checkmark ){
-                cell?.accessoryType = .None
+            let cell = tableView.cellForRow(at: indexPath)
+            if ( cell?.accessoryType == .checkmark ){
+                cell?.accessoryType = .none
             }else{
-                cell?.accessoryType = .Checkmark
+                cell?.accessoryType = .checkmark
                 globalVariableDay.checkDay.append("Sun")
             }
         case 1 : /* Monday */
-            let cell = tableView.cellForRowAtIndexPath(indexPath)
-            if ( cell?.accessoryType == .Checkmark ){
-                cell?.accessoryType = .None
+            let cell = tableView.cellForRow(at: indexPath)
+            if ( cell?.accessoryType == .checkmark ){
+                cell?.accessoryType = .none
             }else{
-                cell?.accessoryType = .Checkmark
+                cell?.accessoryType = .checkmark
                 globalVariableDay.checkDay.append("Mon")
             }
         case 2 : /* Tuesday */
-            let cell = tableView.cellForRowAtIndexPath(indexPath)
-            if ( cell?.accessoryType == .Checkmark ){
-                cell?.accessoryType = .None
+            let cell = tableView.cellForRow(at: indexPath)
+            if ( cell?.accessoryType == .checkmark ){
+                cell?.accessoryType = .none
             }else{
-                cell?.accessoryType = .Checkmark
+                cell?.accessoryType = .checkmark
                 globalVariableDay.checkDay.append("Tue")
             }
         case 3 : /* Wednesday */
-            let cell = tableView.cellForRowAtIndexPath(indexPath)
-            if ( cell?.accessoryType == .Checkmark ){
-                cell?.accessoryType = .None
+            let cell = tableView.cellForRow(at: indexPath)
+            if ( cell?.accessoryType == .checkmark ){
+                cell?.accessoryType = .none
             }else{
-                cell?.accessoryType = .Checkmark
+                cell?.accessoryType = .checkmark
                 globalVariableDay.checkDay.append("Wed")
             }
         case 4 : /* Thursday */
-            let cell = tableView.cellForRowAtIndexPath(indexPath)
-            if ( cell?.accessoryType == .Checkmark ){
-                cell?.accessoryType = .None
+            let cell = tableView.cellForRow(at: indexPath)
+            if ( cell?.accessoryType == .checkmark ){
+                cell?.accessoryType = .none
             }else{
-                cell?.accessoryType = .Checkmark
+                cell?.accessoryType = .checkmark
                 globalVariableDay.checkDay.append("Thu")
             }
         case 5 : /* Friday */
-            let cell = tableView.cellForRowAtIndexPath(indexPath)
-            if ( cell?.accessoryType == .Checkmark ){
-                cell?.accessoryType = .None
+            let cell = tableView.cellForRow(at: indexPath)
+            if ( cell?.accessoryType == .checkmark ){
+                cell?.accessoryType = .none
             }else{
-                cell?.accessoryType = .Checkmark
+                cell?.accessoryType = .checkmark
                 globalVariableDay.checkDay.append("Fri")
             }
         case 6 : /* Saturday */
-            let cell = tableView.cellForRowAtIndexPath(indexPath)
-            if ( cell?.accessoryType == .Checkmark ){
-                cell?.accessoryType = .None
+            let cell = tableView.cellForRow(at: indexPath)
+            if ( cell?.accessoryType == .checkmark ){
+                cell?.accessoryType = .none
             }else{
-                cell?.accessoryType = .Checkmark
+                cell?.accessoryType = .checkmark
                 globalVariableDay.checkDay.append("Sat")
             }
         default :

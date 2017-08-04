@@ -8,6 +8,30 @@
 
 import Foundation
 import UIKit
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func >= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l >= r
+  default:
+    return !(lhs < rhs)
+  }
+}
+
 
 var ArrayAmPm = ["오전", "오후"]
 let ArrayHour = Array(1...12)
@@ -92,10 +116,10 @@ class ViewEditController : UIViewController, UIPickerViewDelegate, UIPickerViewD
     }
     
     func getCurrentTime() -> (ampm:Int, hour:Int, minute:Int, second:Int){
-        let date = NSDate()
-        let calendar = NSCalendar.currentCalendar()
-        let unit: NSCalendarUnit = [.Year, .Month, .Day, .Hour, .Minute, .Second]
-        let components = calendar.components(unit, fromDate: date)
+        let date = Date()
+        let calendar = Calendar.current
+        let unit: NSCalendar.Unit = [.year, .month, .day, .hour, .minute, .second]
+        let components = (calendar as NSCalendar).components(unit, from: date)
         
         var ampm = 0
         var hour = components.hour
@@ -107,63 +131,63 @@ class ViewEditController : UIViewController, UIPickerViewDelegate, UIPickerViewD
             hour = 11
         }else if ( 12 < hour && hour < 24  ){
             ampm = 1
-            hour = hour - 13
+            hour = hour! - 13
         }else if ( hour == 0 ){
             hour = 11
         }else{
             ampm = 0
-            hour = hour - 1
+            hour = hour! - 1
         }
         
-        return (ampm, hour, minute, second)
+        return (ampm, hour!, minute!, second!)
     }
     
     func getTodayOfWeek()->Int {
-        let calendar = NSCalendar.currentCalendar()
-        let date = NSDate()
-        let dateComponent =  calendar.components(NSCalendarUnit.Weekday, fromDate: date)
+        let calendar = Calendar.current
+        let date = Date()
+        let dateComponent =  (calendar as NSCalendar).components(NSCalendar.Unit.weekday, from: date)
         let weekDay = dateComponent.weekday
-        return weekDay
+        return weekDay!
     }
     
-    func hourForRow(row: Int) -> Int {
+    func hourForRow(_ row: Int) -> Int {
         return ArrayHour[row % ArrayHour.count]
     }
 
-    func minuteForRow(row: Int) -> Int {
+    func minuteForRow(_ row: Int) -> Int {
         return ArrayMinute[row % ArrayMinute.count]
     }
   
-    func hourForValue(value: Int) -> Int? {
-        if (ArrayHour.indexOf(value) >= 0) {
+    func hourForValue(_ value: Int) -> Int? {
+        if (ArrayHour.index(of: value) >= 0) {
             return hourViewMiddle + value
         }
         return nil
     }
     
-    func minuteForValue(value: Int) -> Int? {
-          if (ArrayMinute.indexOf(value) >= 0) {
+    func minuteForValue(_ value: Int) -> Int? {
+          if (ArrayMinute.index(of: value) >= 0) {
             return minuteViewMiddle + value
         }
         return nil
     }
     
     
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         switch pickerView {
         case PickerAmPm :
             return ArrayAmPm[row]
         case PickerHour :
-            return String().stringByAppendingFormat("%.2d",hourForRow(row))
+            return String().appendingFormat("%.2d",hourForRow(row))
         case PickerMinute :
-            return String().stringByAppendingFormat("%.2d",minuteForRow(row))
+            return String().appendingFormat("%.2d",minuteForRow(row))
         default :
             break
         }
         return ""
     }
     
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         var newHourRow = 0
         var newMinuteRow = 0
         
@@ -191,7 +215,7 @@ class ViewEditController : UIViewController, UIPickerViewDelegate, UIPickerViewD
         }
     }
     
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         switch pickerView{
         case PickerAmPm :
             return ArrayAmPm.count
@@ -206,11 +230,11 @@ class ViewEditController : UIViewController, UIPickerViewDelegate, UIPickerViewD
     }
     
     
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
 
-    @IBAction func addAlarmList(sender: AnyObject) {
+    @IBAction func addAlarmList(_ sender: AnyObject) {
         let checkTime = didSelectedAmPm + didSelectedHour + didSelectedMinute
         let checkDay = globalVariableDay.checkDay
         let checkSound = globalVariableSound.checkSound
@@ -220,23 +244,23 @@ class ViewEditController : UIViewController, UIPickerViewDelegate, UIPickerViewD
     }
     
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return self.subMenu.count;
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
-        var cell = tableView.dequeueReusableCellWithIdentifier("Week")
+    func tableView(_ tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell{
+        var cell = tableView.dequeueReusableCell(withIdentifier: "Week")
         
         if( indexPath.row == 0 ){
-            cell = tableView.dequeueReusableCellWithIdentifier("Week")
+            cell = tableView.dequeueReusableCell(withIdentifier: "Week")
         }
         else{
-            cell = tableView.dequeueReusableCellWithIdentifier("Sound")
+            cell = tableView.dequeueReusableCell(withIdentifier: "Sound")
         }
         
         cell?.textLabel?.text = subMenu[indexPath.row]
-        cell?.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
-        cell?.selectionStyle = UITableViewCellSelectionStyle.Blue
+        cell?.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
+        cell?.selectionStyle = UITableViewCellSelectionStyle.blue
         return cell!
     }
     

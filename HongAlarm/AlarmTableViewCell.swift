@@ -25,9 +25,9 @@ class AlarmTableViewCell: UITableViewCell {
             "ampm" : ampmLabel,
             "time" : timeLabel,
             "alarm": alarmSwitch,
-        ]
+        ] as [String : Any]
         
-        contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-[ampm]-[time]-[alarm]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewsDict))
+        contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-[ampm]-[time]-[alarm]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewsDict))
     }
     
 }
